@@ -1,0 +1,805 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   THEME: Cartoon Playful (magazine) — 正常模式
+   ================================================================ */
+[data-theme="magazine"] {
+  /* ── Color palette (macaron) ── */
+  --color-bg: #FFF9EC;
+  --color-bg-card: #FFFFFF;
+  --color-bg-input: #FFFFFF;
+  --color-bg-hover: #FFF0D0;
+  --color-text: #333333;
+  --color-text-muted: #777777;
+  --color-border: #333333;
+  --color-border-light: #555555;
+  --color-primary: #FF8FAB;
+  --color-primary-hover: #FF6B8A;
+  --color-primary-text: #FFFFFF;
+  --color-secondary: #7EC8E3;
+  --color-secondary-hover: #5BB8D8;
+  --color-secondary-text: #FFFFFF;
+  --color-accent: #FFD166;
+  --color-success: #B5E5CF;
+  --color-warning: #FFD166;
+  --color-danger: #FF8FAB;
+
+  /* ── Radius (big & chunky) ── */
+  --radius-card: 24px;
+  --radius-btn: 30px;
+  --radius-tag: 25px;
+  --radius-input: 22px;
+  --radius-sm: 16px;
+
+  /* ── Shadows (bold offset, no blur → sticker feel) ── */
+  --shadow-card: 4px 4px 0px #E5A07B;
+  --shadow-btn: 3px 3px 0px rgba(0,0,0,0.25);
+  --shadow-none: none;
+
+  /* ── Borders (thick outlines) ── */
+  --border-width: 2.5px;
+  --border-width-input: 3px;
+  --border-width-focus: 4px;
+  --border-style: solid;
+  --outline-width: 3px;
+
+  /* ── Typography (rounded & playful) ── */
+  --font-sans: 'Baloo 2', 'Noto Sans SC', 'Comic Sans MS', cursive, sans-serif;
+  --font-serif: 'Fredoka One', 'Noto Sans SC', cursive, sans-serif;
+  --font-display: 'Fredoka One', 'Noto Sans SC', cursive, sans-serif;
+  --font-jp: 'Baloo 2', 'Noto Sans JP', cursive, sans-serif;
+  --font-weight-heading: 700;
+  --font-weight-body: 500;
+  --letter-spacing: 0.02em;
+  --line-height: 1.4;
+
+  /* ── Transitions (springy) ── */
+  --transition-fast: 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-base: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-slow: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Decorative ── */
+  --texture: none;
+  --card-stripe: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,143,171,0.03) 5px, rgba(255,143,171,0.03) 10px);
+  --card-badge-display: flex;
+  --decoration-display: block;
+  --cartoon-outline: 2.5px solid #333;
+  --cartoon-transform: rotate(-1deg);
+  --bg-dots: radial-gradient(circle, rgba(255,143,171,0.1) 1px, transparent 1px);
+  --bg-pattern: var(--bg-dots);
+  --gradient-header: linear-gradient(135deg, #FF8FAB 0%, #FFD166 100%);
+  --gradient-btn: linear-gradient(135deg, #FF8FAB 0%, #FFB347 100%);
+  --tag-transform-hover: rotate(-3deg) scale(1.1);
+  --btn-transform-hover: translateY(-4px) scale(1.03);
+  --card-transform-hover: translateY(-2px);
+  --scale-hover: 1.05;
+  --bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --sound-success: true;
+  --sound-error: true;
+  --sound-generate: true;
+  --confetti-enabled: true;
+}
+
+/* ================================================================
+   THEME: Apple Minimalism (cartoon) — 简洁模式
+   ================================================================ */
+[data-theme="cartoon"] {
+  /* ── Color palette ── */
+  --color-bg: #ffffff;
+  --color-bg-card: #f5f5f7;
+  --color-bg-input: #ffffff;
+  --color-bg-hover: #f0f0f0;
+  --color-text: #1d1d1f;
+  --color-text-muted: #86868b;
+  --color-border: #d2d2d7;
+  --color-border-light: #e8e8ed;
+  --color-primary: #0071e3;
+  --color-primary-hover: #0060c0;
+  --color-primary-text: #ffffff;
+  --color-secondary: #e8e8ed;
+  --color-secondary-hover: #d2d2d7;
+  --color-secondary-text: #1d1d1f;
+  --color-accent: #0071e3;
+  --color-success: #34c759;
+  --color-warning: #ff9f0a;
+  --color-danger: #ff3b30;
+
+  /* ── Radius ── */
+  --radius-card: 12px;
+  --radius-btn: 12px;
+  --radius-tag: 20px;
+  --radius-input: 12px;
+  --radius-sm: 8px;
+
+  /* ── Shadows (none / minimal) ── */
+  --shadow-card: none;
+  --shadow-btn: none;
+  --shadow-none: none;
+
+  /* ── Borders ── */
+  --border-width: 1px;
+  --border-width-input: 1px;
+  --border-width-focus: 1.5px;
+  --border-style: solid;
+  --outline-width: 0px;
+
+  /* ── Typography ── */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', system-ui, sans-serif;
+  --font-serif: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  --font-jp: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', system-ui, sans-serif;
+  --font-weight-heading: 600;
+  --font-weight-body: 400;
+  --letter-spacing: normal;
+  --line-height: 1.5;
+
+  /* ── Transitions ── */
+  --transition-fast: 0.15s ease-out;
+  --transition-base: 0.2s ease-out;
+  --transition-slow: 0.3s ease-out;
+  --easing: ease-out;
+
+  /* ── Decorative ── */
+  --texture: none;
+  --card-stripe: none;
+  --card-badge-display: none;
+  --decoration-display: none;
+  --cartoon-outline: none;
+  --cartoon-transform: none;
+  --bg-pattern: none;
+  --gradient-header: none;
+  --gradient-btn: none;
+  --tag-transform-hover: none;
+  --btn-transform-hover: none;
+  --card-transform-hover: none;
+  --scale-hover: 1;
+  --bounce: 0.2s ease-out;
+  --sound-success: false;
+  --sound-error: false;
+  --sound-generate: false;
+  --confetti-enabled: false;
+}
+
+/* ================================================================
+   GLOBAL BASE STYLES
+   ================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: var(--letter-spacing);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-body);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+/* Cartoon dot pattern overlay (正常模式 = magazine = cartoon style) */
+[data-theme="magazine"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--bg-pattern);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 3px;
+}
+
+/* Focus ring */
+input:focus, textarea:focus, select:focus, button:focus-visible {
+  outline: var(--outline-width) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ================================================================
+   TYPOGRAPHY HELPERS
+   ================================================================ */
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-heading);
+}
+
+/* Cartoon text shadow (正常模式 = magazine) */
+[data-theme="magazine"] .cartoon-text {
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  letter-spacing: 0.03em;
+}
+
+/* ================================================================
+   ANIMATION KEYFRAMES
+   ================================================================ */
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.08); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0%   { transform: translateY(16px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  0%   { transform: translateY(-8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes voiceWave {
+  0%, 100% { transform: scaleY(0.3); }
+  50%      { transform: scaleY(1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-3deg); }
+  75%      { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  80%  { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes ripple {
+  0%   { box-shadow: 0 0 0 0 rgba(255,143,171,0.5); }
+  100% { box-shadow: 0 0 0 20px rgba(255,143,171,0); }
+}
+
+@keyframes stickerPeel {
+  0%   { transform: rotate(-2deg) scale(0.9); opacity: 0; }
+  60%  { transform: rotate(1deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* Streaming text cursor */
+.streaming-cursor::after {
+  content: '▋';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* Voice wave bars */
+.voice-wave-bar {
+  animation: voiceWave 0.6s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+.voice-wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.voice-wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.voice-wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.voice-wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+/* Cartoon-only animations (正常模式 = magazine) */
+[data-theme="magazine"] .animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+[data-theme="magazine"] .animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+[data-theme="magazine"] .animate-pop-in {
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+[data-theme="magazine"] .animate-sticker {
+  animation: stickerPeel 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+[data-theme="magazine"] .animate-ripple {
+  animation: ripple 1s ease-out infinite;
+}
+[data-theme="magazine"] .hover-wiggle:hover {
+  animation: wiggle 0.3s ease-in-out;
+}
+[data-theme="magazine"] .hover-float:hover {
+  animation: float 0.6s ease-in-out;
+}
+
+/* ================================================================
+   APPLE-MODE SPECIFIC OVERRIDES (简洁模式 = cartoon)
+   ================================================================ */
+
+[data-theme="cartoon"] .apple-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 0;
+  transition: background var(--transition-base);
+}
+
+[data-theme="cartoon"] .apple-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0;
+  border: none;
+}
+
+[data-theme="cartoon"] .apple-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="cartoon"] .apple-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+[data-theme="cartoon"] .apple-link:hover {
+  text-decoration: underline;
+}
+
+/* ================================================================
+   CARTOON-MODE SPECIFIC DECORATIONS (正常模式 = magazine)
+   ================================================================ */
+
+[data-theme="magazine"] .cartoon-badge {
+  display: var(--card-badge-display);
+  position: absolute;
+  top: -14px;
+  left: 16px;
+  background: var(--gradient-header, linear-gradient(135deg, #FF8FAB, #FFD166));
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 2px solid #333;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+[data-theme="magazine"] .cartoon-speech-bubble {
+  position: relative;
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 20px;
+  padding: 12px 16px;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+}
+[data-theme="magazine"] .cartoon-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 24px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid #333;
+}
+[data-theme="magazine"] .cartoon-speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 26px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #fff;
+  z-index: 1;
+}
+
+[data-theme="magazine"] .cartoon-step-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-header, linear-gradient(135deg, #FF8FAB, #FFD166));
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 2.5px solid #333;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+[data-theme="magazine"] .cartoon-stripe-bg {
+  background-image: var(--card-stripe);
+}
+
+/* ================================================================
+   COMPONENT BASE CLASSES (use CSS variables)
+   ================================================================ */
+
+/* Card */
+.theme-card {
+  background-color: var(--color-bg-card);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-base);
+}
+
+/* Button – primary */
+.theme-btn-primary {
+  background: var(--gradient-btn, var(--color-primary));
+  color: var(--color-primary-text);
+  border: var(--border-width) var(--border-style) var(--color-primary);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+.theme-btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: var(--btn-transform-hover);
+  box-shadow: var(--shadow-btn);
+}
+.theme-btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Button – secondary */
+.theme-btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-text);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--radius-btn);
+  font-weight: 500;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+.theme-btn-secondary:hover {
+  background: var(--color-secondary-hover);
+  transform: var(--btn-transform-hover);
+}
+
+/* Tag / Chip */
+.theme-tag {
+  background-color: var(--color-bg-card);
+  color: var(--color-text);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--radius-tag);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 14px;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+.theme-tag:hover {
+  background-color: var(--color-bg-hover);
+  transform: var(--tag-transform-hover);
+}
+.theme-tag:active {
+  transform: scale(0.95);
+}
+
+/* Input */
+.theme-input {
+  background-color: var(--color-bg-input);
+  color: var(--color-text);
+  border: var(--border-width-input) var(--border-style) var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  width: 100%;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.theme-input::placeholder {
+  color: var(--color-text-muted);
+}
+.theme-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
+  outline: none;
+}
+[data-theme="magazine"] .theme-input:focus {
+  border-width: var(--border-width-focus);
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+}
+
+/* Panel toggle button */
+.theme-panel-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--transition-fast);
+}
+.theme-panel-toggle:hover {
+  color: var(--color-text);
+}
+
+/* Badge / Pill counter */
+.theme-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+/* Section divider */
+.theme-divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: 0;
+}
+[data-theme="magazine"] .theme-divider {
+  height: 2px;
+  background: #333;
+  border-radius: 1px;
+}
+
+/* ================================================================
+   RESPONSIVE UTILITIES
+   ================================================================ */
+
+@media (max-width: 640px) {
+  :root {
+    --radius-card: 10px;
+    --radius-btn: 10px;
+  }
+  [data-theme="magazine"] {
+    --radius-card: 18px;
+    --radius-btn: 24px;
+  }
+}
+
+/* ================================================================
+   APPLE DESKTOP MODE — @media (min-width: 768px) + [data-theme="cartoon"]
+   ================================================================ */
+
+@media (min-width: 768px) {
+  /* ── 1. Card hover glow ── */
+  [data-theme="cartoon"] .apple-card-hover {
+    transition: box-shadow 0.3s ease-out;
+    cursor: pointer;
+  }
+  [data-theme="cartoon"] .apple-card-hover:hover {
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.08) !important;
+    transform: none !important;
+  }
+
+  /* ── 2. Two-column split layout ── */
+  [data-theme="cartoon"] .apple-layout-split {
+    display: flex;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  [data-theme="cartoon"] .apple-layout-sidebar {
+    width: 40%;
+    flex-shrink: 0;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding-right: 32px;
+    padding-bottom: 24px;
+  }
+  [data-theme="cartoon"] .apple-layout-main {
+    width: 60%;
+    flex-shrink: 0;
+    padding-left: 32px;
+    border-left: 1px solid #e5e5e7;
+    min-height: 400px;
+  }
+
+  /* ── 3. Two-column recipe grid ── */
+  [data-theme="cartoon"] .apple-recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  [data-theme="cartoon"] .apple-recipe-grid > * {
+    height: 100%;
+  }
+
+  /* ── 4. Keyboard hint tooltip ── */
+  [data-theme="cartoon"] .apple-keyboard-hint {
+    position: fixed;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 400;
+    color: #86868b;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #e5e5e7;
+    z-index: 100;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: hintFadeInOut 3.5s ease forwards;
+  }
+  @keyframes hintFadeInOut {
+    0%   { opacity: 0; transform: translateX(-50%) translateY(8px); }
+    12%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+    75%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  }
+
+  /* ── 5. Loading progress bar ── */
+  [data-theme="cartoon"] .apple-progress-bar-track {
+    width: 100%;
+    height: 2px;
+    background: #e8e8ed;
+    border-radius: 1px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  [data-theme="cartoon"] .apple-progress-bar-fill {
+    height: 100%;
+    background: #0071e3;
+    border-radius: 1px;
+    animation: appleProgressSlide 1.5s ease-in-out infinite;
+  }
+  @keyframes appleProgressSlide {
+    0%   { width: 0%; margin-left: 0%; }
+    50%  { width: 60%; margin-left: 0%; }
+    100% { width: 0%; margin-left: 100%; }
+  }
+
+  /* ── 6. Empty state illustration ── */
+  [data-theme="cartoon"] .apple-empty-illustration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 40px;
+    transition: transform 0.4s ease;
+    cursor: default;
+  }
+  [data-theme="cartoon"] .apple-empty-illustration:hover {
+    transform: translateY(-2px);
+  }
+  [data-theme="cartoon"] .apple-empty-plate {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  /* Plate ring */
+  [data-theme="cartoon"] .apple-empty-plate-ring {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1.5px solid #d2d2d7;
+  }
+  /* Inner plate */
+  [data-theme="cartoon"] .apple-empty-plate-inner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e8e8ed;
+  }
+  /* Fork */
+  [data-theme="cartoon"] .apple-empty-fork {
+    position: absolute;
+    top: 2px;
+    left: -2px;
+    width: 4px;
+    height: 50px;
+    background: #d2d2d7;
+    border-radius: 2px;
+    transform: rotate(-15deg);
+    transform-origin: bottom center;
+  }
+  [data-theme="cartoon"] .apple-empty-fork::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #d2d2d7;
+    border-radius: 3px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+  /* Spoon */
+  [data-theme="cartoon"] .apple-empty-spoon {
+    position: absolute;
+    top: 10px;
+    right: -2px;
+    width: 4px;
+    height: 42px;
+    background: #d2d2d7;
+    border-radius: 2px;
+    transform: rotate(12deg);
+    transform-origin: bottom center;
+  }
+  [data-theme="cartoon"] .apple-empty-spoon::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    width: 14px;
+    height: 16px;
+    border: 2px solid #d2d2d7;
+    border-radius: 50%;
+  }
+  [data-theme="cartoon"] .apple-empty-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #86868b;
+    text-align: center;
+  }
+}
