@@ -1,5 +1,6 @@
-const API_KEY = import.meta.env.VITE_DEEPSEEK_API_KEY;
-const API_URL = 'https://api.deepseek.com/v1/chat/completions';
+// In dev, Vite proxies /api → localhost:3001. In prod, set VITE_API_BASE to the proxy server URL.
+const API_BASE = import.meta.env.VITE_API_BASE || '';
+const API_URL = `${API_BASE}/api/chat`;
 
 /**
  * Build system prompt based on mode, language, and preferences
@@ -131,7 +132,6 @@ export async function streamRecipe(ingredients, mode, lang, prefs, onChunk, onDo
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`,
         'Accept': 'text/event-stream',
       },
       body: JSON.stringify({
@@ -230,7 +230,7 @@ export async function generateRecipe(ingredients, mode, lang, prefs) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`,
+
     },
     body: JSON.stringify({
       model: 'deepseek-chat',
